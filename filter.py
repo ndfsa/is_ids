@@ -16,7 +16,7 @@ def on_moved(event):
 	print("Log file moved")
 
 def start():
-	patterns = "auth.log"
+	patterns = "*/auth.log"
 	ignore_patterns = ""
 	ignore_directories = False
 	case_sensitive = True
