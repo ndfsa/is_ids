@@ -2,18 +2,20 @@ from watchdog.observers import Observer
 from watchdog.events import PatternMatchingEventHandler
 import subprocess
 import time
+import parser
 
 def on_created(event):
 	print("Log file created")
 
 def on_deleted(event):
-	print("Log file deleted")
+	print("LOG FILE DELETED, SOMETHING'S WRONG")
     
 def on_modified(event):
 	print("Log file modified")
+	
     
 def on_moved(event):
-	print("Log file moved")
+	print("LOG FILE MOVED, WTF")
 
 def start():
 	patterns = "*/auth.log"
@@ -32,12 +34,10 @@ def start():
 	observer = Observer()
 	observer.schedule(event_handler, path, recursive=go_recursively)
 
-	subprocess.run('iptables -N LOGGING; iptables -A INPUT -j LOGGING; iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4', shell=True)
-
 	observer.start()
 	try:
 		while True:
-			time.sleep(10)
+			time.sleep(500)
 	except KeyboardInterrupt:
 		observer.stop()
 		observer.join()
