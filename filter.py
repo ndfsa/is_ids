@@ -27,7 +27,7 @@ def start():
 	event_handler.on_modified = on_modified
 	event_handler.on_moved = on_moved
 
-	path = "/var/log/auth.log"
+	path = "/var/log/"
 	go_recursively = True
 	observer = Observer()
 	observer.schedule(event_handler, path, recursive=go_recursively)
