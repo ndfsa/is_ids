@@ -3,7 +3,7 @@ from watchdog.events import PatternMatchingEventHandler
 import subprocess
 
 def on_created(event):
-    print("Log file created")
+	print("Log file created")
 
 def on_deleted(event):
 	print("Log file deleted")
@@ -12,7 +12,7 @@ def on_modified(event):
 	print("Log file modified")
     
 def on_moved(event):
-    print("Log file moved")
+	print("Log file moved")
 
 def start():
 	patterns = "*"
