@@ -12,7 +12,7 @@ def on_deleted(event):
     
 def on_modified(event):
 	print("Log file modified")
-	
+	parser.count_occurrances
     
 def on_moved(event):
 	print("LOG FILE MOVED, WTF")
