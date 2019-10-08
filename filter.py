@@ -32,7 +32,7 @@ def start():
 	observer = Observer()
 	observer.schedule(event_handler, path, recursive=go_recursively)
 
-	subprocess.run('iptables -N LOGGING; iptables -A INPUT -j LOGGING; iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4')
+	subprocess.run('iptables -N LOGGING; iptables -A INPUT -j LOGGING; iptables -A LOGGING -m limit --limit 2/min -j LOG --log-prefix "IPTables-Dropped: " --log-level 4', shell=True)
 
 	observer.start()
 	try:
