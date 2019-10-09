@@ -16,7 +16,7 @@ def count_occurrances():
 						fq.close()
 					if (not output[i + 1] in whitelist):
 						if(output[i + 1] in blacklist):
-							print("Access restricted to", output[i + 1])
+							print("Access restricted to", output[i + 1], "is part of blacklist")
 						else:
 							subprocess.run(['iptables', '-A', 'INPUT', '-s', output[i + 1], '-j', 'DROP'])
 							blacklist.append(output[i + 1])
