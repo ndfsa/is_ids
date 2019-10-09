@@ -7,11 +7,11 @@ def count_occurrances():
 	for i in range(len(output)):
 		if i % 2 == 0:
 			print("addr:", output[i + 1], "tries:", output[i])
-			if (int(output[i]) > 50):
+			if (int(output[i]) >= 20):
 				with open("whitelist.txt", "rb") as fp:
 					whitelist = pickle.load(fp)
 					if (not output[i + 1] in whitelist):
-						subprocess.run(['iptables', '-D', 'INPUT', '-s', output[i + 1], '-j', 'DROP'])
+						subprocess.run(['iptables', '-A', 'INPUT', '-s', output[i + 1], '-j', 'DROP'])
 						print("Access restricted to", output[i + 1])
 					else:
 						print("forgot something?")
