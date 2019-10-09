@@ -20,7 +20,7 @@ def count_occurrances():
 						else:
 							subprocess.run(['iptables', '-A', 'INPUT', '-s', output[i + 1], '-j', 'DROP'])
 							blacklist.append(output[i + 1])
-							with open("blacklist.txt", "rb") as fq:
+							with open("blacklist.txt", "wb") as fq:
 								pickle.dump(blacklist, fp)
 								fq.close()
 							print("Access restricted to", output[i + 1])
