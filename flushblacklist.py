@@ -15,3 +15,5 @@ if __name__ == "__main__":
 			blacklist = pickle.load(fp)
 			print(blacklist)
 			fp.close()
+	elif (str(sys.argv[1]) == "-h"):
+		print('-f	flushes iptables and blacklist\n-p		prints the blacklist')
